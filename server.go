@@ -6,6 +6,8 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/rs/cors"
+
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -35,7 +37,9 @@ func main() {
 	fmt.Println("Connected to MongoDB!")
 	collection := client.Database("Sparata").Collection("webclass")
 
-	http.HandleFunc("/", func(rw http.ResponseWriter, r *http.Request) {
+	serveMux := http.NewServeMux()
+
+	serveMux.HandleFunc("/", func(rw http.ResponseWriter, r *http.Request) {
 		rw.Header().Set("Content-Type", "application/json")
 
 		cursor, err := collection.Find(context.TODO(), bson.M{})
@@ -44,7 +48,7 @@ func main() {
 		}
 		defer cursor.Close(context.TODO())
 		for cursor.Next(context.TODO()) {
-			var arr bson.M
+			var arr map[string]interface{}
 			if err = cursor.Decode(&arr); err != nil {
 				log.Fatal(err)
 			}
@@ -53,5 +57,17 @@ func main() {
 
 	})
 
-	http.ListenAndServe(":5000", nil)
+	handler := cors.Default().Handler(serveMux)
+	corHandler := cors.New(cors.Options{
+		AllowedOrigins:   []string{"http://127.0.0.1:8080", "http://localhost:8080"},
+		AllowedMethods:   []string{http.MethodGet},
+		AllowedHeaders:   []string{"Origin", "Accept", "Content-Type", "X-Requested-With"},
+		AllowCredentials: true,
+		MaxAge:           0,
+		Debug:            true,
+	})
+
+	handler = corHandler.Handler(handler)
+
+	http.ListenAndServe(":5000", handler)
 }
