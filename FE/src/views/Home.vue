@@ -10,11 +10,15 @@
 
 <script>
 import HomeContent from '../components/HomeContent.vue';
+import { APIS } from '../libs/axios';
 export default {
   name: 'Home',
   components: {
-    HomeContent
-  }
+    APIS
+  },
+  created() {
+    APIS.TestLoad().then((res) => console.log(res.data))
+  },
 };
 </script>
 <style scoped>

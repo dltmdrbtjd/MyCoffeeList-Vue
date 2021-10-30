@@ -7,6 +7,7 @@ const instance = axios.create({
 
 const APIS = {
   // postCreate: (contents) => instance.post('/api/post', contents),
+  TestLoad: () => instance.get("/")
 };
 
 export { APIS };
