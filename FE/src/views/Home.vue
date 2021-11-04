@@ -9,17 +9,17 @@
 </template>
 
 <script>
-import HomeContent from '../components/HomeContent.vue';
-import { APIS } from '../libs/axios';
+import HomeContent from '../components/HomeContent.vue'
+import { APIS } from '../libs/axios'
 export default {
   name: 'Home',
   components: {
     APIS
   },
-  created() {
+  created () {
     APIS.TestLoad().then((res) => console.log(res.data))
-  },
-};
+  }
+}
 </script>
 <style scoped>
 
@@ -48,5 +48,6 @@ h1 {
   background-color: #262626;
   padding: 10px 20px;
   border-radius: 12px;
+  cursor: pointer;
 }
 </style>
