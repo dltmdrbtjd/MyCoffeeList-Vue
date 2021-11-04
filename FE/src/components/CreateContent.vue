@@ -42,10 +42,11 @@ h3 {
 input,
 textarea {
   border: 1px solid #c4c4c4;
-  width: 100%;
+  width: 90%;
   padding: 4px 8px;
   margin-top: 6px;
   color: black;
+  outline: none;
 }
 
 button {
@@ -56,5 +57,6 @@ button {
   background-color: burlywood;
   color: white;
   border-radius: 10px;
+  cursor: pointer;
 }
 </style>
