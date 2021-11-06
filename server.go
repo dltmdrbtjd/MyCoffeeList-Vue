@@ -42,19 +42,20 @@ func main() {
 	serveMux.HandleFunc("/", func(rw http.ResponseWriter, r *http.Request) {
 		rw.Header().Set("Content-Type", "application/json")
 
-		cursor, err := collection.Find(context.TODO(), bson.M{})
+		cursor, err := collection.Find(context.Background(), bson.D{})
 		if err != nil {
 			log.Fatal(err)
 		}
-		defer cursor.Close(context.TODO())
-		for cursor.Next(context.TODO()) {
-			var arr map[string]interface{}
-			if err = cursor.Decode(&arr); err != nil {
+		defer cursor.Close(context.Background())
+
+		for cursor.Next(context.Background()) {
+			var result bson.M
+			err := cursor.Decode(&result)
+			if err != nil {
 				log.Fatal(err)
 			}
-			fmt.Fprint(rw, arr)
+			fmt.Fprint(rw, result)
 		}
-
 	})
 
 	handler := cors.Default().Handler(serveMux)
