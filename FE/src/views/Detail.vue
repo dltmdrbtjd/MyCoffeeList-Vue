@@ -7,22 +7,17 @@
   </div>
 </template>
 <script>
-import DetailContent from '../components/DetailContent';
+import DetailContent from '../components/DetailContent'
 export default {
   name: '',
   components: {
     DetailContent
   },
-  data() {
+  data () {
     return {
       example: ''
     }
-  },
-  setup() {},
-  created() {},
-  mounted() {},
-  unmounted() {},
-  methods: {},
+  }
 }
 </script>
 <style scoped>

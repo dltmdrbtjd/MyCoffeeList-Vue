@@ -14,7 +14,7 @@ import { APIS } from '../libs/axios'
 export default {
   name: 'Home',
   components: {
-    APIS
+    HomeContent
   },
   created () {
     APIS.TestLoad().then((res) => console.log(res.data))

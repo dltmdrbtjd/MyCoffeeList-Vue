@@ -5,20 +5,15 @@
   </div>
 </template>
 <script>
-import CreateContent from '../components/CreateContent.vue';
+import CreateContent from '../components/CreateContent.vue'
 export default {
   name: '',
-  components: {CreateContent},
-  data() {
+  components: { CreateContent },
+  data () {
     return {
       example: ''
     }
-  },
-  setup() {},
-  created() {},
-  mounted() {},
-  unmounted() {},
-  methods: {},
+  }
 }
 </script>
 <style scoped>
