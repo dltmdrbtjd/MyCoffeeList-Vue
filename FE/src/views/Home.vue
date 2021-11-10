@@ -3,7 +3,6 @@
     <h1>My CoffeeList</h1>
     <HomeContent />
     <router-link to="/create">
-    <button class="create-btn">게시글 작성하기</button>
     </router-link>
   </div>
 </template>
@@ -39,15 +38,5 @@ h1 {
   border-radius: 15px;
   box-shadow: 4px 4px 4px rgba(0,0,0,0.3);
   position: relative;
-}
-.create-btn {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #262626;
-  padding: 10px 20px;
-  border-radius: 12px;
-  cursor: pointer;
 }
 </style>
