@@ -44,5 +44,5 @@
 
 ### 2021.12.01
 - 아래 프로젝트들로 대체하여 원래 이 프로젝트에서 구현하려고 했던 내용을 go를 이용해서 구현 완료
-backend : https://github.com/dltmdrbtjd/go-gin-gorm-prac
-frontend : https://github.com/dltmdrbtjd/vue-todolist
+- backend : https://github.com/dltmdrbtjd/go-gin-gorm-prac
+- frontend : https://github.com/dltmdrbtjd/vue-todolist
