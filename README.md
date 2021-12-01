@@ -41,3 +41,8 @@
 ### 2021.11.07
 - Vue : 기본골격이랑 뷰는 모두 끝내었음 우선 데이터만 핸들링하면 끝. 우선은 추가로 nuxt공부후에 nuxt도 추가로 정리해야겠음.
 - Golang : mongodb 연결도 되었고 server도 띄웠지만 도저히 mongodb find로 배열 반환시에 제대로된 json형태의 배열을 받아오는게 계속 실패해서 우선 잠정적으로 여기까지만 작업하고 추후에 제대로 숙지가 되면 그때 다시 해야겠음.
+
+### 2021.12.01
+- 아래 프로젝트들로 대체하여 원래 이 프로젝트에서 구현하려고 했던 내용을 go를 이용해서 구현 완료
+backend : https://github.com/dltmdrbtjd/go-gin-gorm-prac
+frontend : https://github.com/dltmdrbtjd/vue-todolist
